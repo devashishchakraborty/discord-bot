@@ -37,18 +37,20 @@ async def latest(ctx, username : str):
     embed.set_image(url=latest_tweet.tweet_media_url)"""
     await ctx.send(latest_tweet.expanded_url)'''
 
-
 @ client.command()
 async def pics(ctx, username):
-    try:
-        posts = Posts(username)
-        embed = discord.Embed(title=posts.name+f"(@{username})", description=posts.text, color=discord.Colour.orange())
-        embed.set_image(url=posts.image_url)
-        await ctx.send(embed=embed)
-    except IndexError:
-        await ctx.send("This User didn't Upload any pictures recently.")
-    except KeyError:
-        await ctx.send("Please enter a valid username")
-
+    while True:
+        try:
+            posts = Posts(username)
+            embed = discord.Embed(title=posts.name+f"(@{username})", description=posts.text, color=discord.Colour.orange())
+            embed.set_image(url=posts.image_url)
+            await ctx.send(embed=embed)
+        except IndexError:
+            await ctx.send("This User didn't Upload any pictures recently.")
+            break
+        except KeyError:
+            await ctx.send("Please enter a valid username")
+            break
+        time.sleep(10800)
 
 client.run("{DISCORD AUTH TOKEN}")
