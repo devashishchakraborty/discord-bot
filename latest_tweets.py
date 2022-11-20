@@ -3,7 +3,7 @@ import requests
 class LatestTweet:
     def __init__(self, username):
         self.username = username
-        self.headers = { 'Authorization': r'Bearer TOKEN'}
+        self.headers = { 'Authorization': r'Bearer {BEARER TOKEN}'}
         self.url = f"https://api.twitter.com/2/users/by/username/{self.username}?user.fields=profile_image_url"
     
     #def get_user_id(self):
