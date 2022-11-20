@@ -5,7 +5,7 @@ import concurrent.futures
 class TwitterAPI:
     def __init__(self, username):
         self.headers = {
-            'Authorization': r'Bearer TOKEN'}
+            'Authorization': r'Bearer {BEARER TOKEN}'}
 
         self.profile_url = f"https://api.twitter.com/2/users/by/username/{username}?user.fields=profile_image_url"
         self.profile_response = requests.get(self.profile_url, headers=self.headers)

@@ -9,7 +9,7 @@ class Posts:
         self.list = tapi.picture_tweet_ids
         self.url = f"https://api.twitter.com/2/tweets/{random.choice(self.list)}?tweet.fields=text&expansions=attachments.media_keys&media.fields=url"
 
-        self.headers = { 'Authorization': r'Bearer TOKEN'}
+        self.headers = { 'Authorization': r'Bearer {BEARER TOKEN}'}
 
         self.response = requests.get(self.url, headers=self.headers)
 
